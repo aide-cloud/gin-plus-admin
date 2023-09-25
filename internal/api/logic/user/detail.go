@@ -28,7 +28,7 @@ type (
 
 // GetDetail ...
 func (l *User) GetDetail(ctx context.Context, req *DetailReq) (*DetailResp, error) {
-	action := methods.NewAction(methods.WithDB[model.User](conn.GetDB()))
+	action := methods.NewAction(methods.WithDB[model.User](conn.GetMysqlDB()))
 
 	first, err := action.First(ctx, model.WhereID(req.ID))
 	if err != nil {

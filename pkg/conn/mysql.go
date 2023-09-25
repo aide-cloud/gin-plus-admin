@@ -14,9 +14,9 @@ var (
 	once sync.Once
 )
 
-func init() {
+func InitMysqlDB(dsn string) {
 	once.Do(func() {
-		sqlDB, err := sql.Open("mysql", "root:localhost@tcp(localhost:3306)/gin-plus-admin?charset=utf8mb4&parseTime=True&loc=Local")
+		sqlDB, err := sql.Open("mysql", dsn)
 		if err != nil {
 			panic(err)
 		}
@@ -36,6 +36,6 @@ func init() {
 	})
 }
 
-func GetDB() *gorm.DB {
+func GetMysqlDB() *gorm.DB {
 	return _db
 }
