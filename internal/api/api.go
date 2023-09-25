@@ -46,7 +46,7 @@ func NewApi(opts ...ApiOption) *Api {
 	return m
 }
 
-// Middlewares ...
+// Middlewares 添加Api模块的公共中间件
 func (l *Api) Middlewares() []gin.HandlerFunc {
 	return []gin.HandlerFunc{
 		func(ctx *gin.Context) {
@@ -56,7 +56,7 @@ func (l *Api) Middlewares() []gin.HandlerFunc {
 	}
 }
 
-// MethoderMiddlewares ...
+// MethoderMiddlewares 添加Api模块的每个api方法独有中间件
 func (l *Api) MethoderMiddlewares() map[string][]gin.HandlerFunc {
 	return map[string][]gin.HandlerFunc{
 		// your method middlewares

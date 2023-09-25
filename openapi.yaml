@@ -3,6 +3,87 @@ info:
     version: v0.3.1
 openapi: 3.0.3
 paths:
+    /api/role/create:
+        post:
+            operationId: Create
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+    /api/role/delete/:id:
+        delete:
+            operationId: Delete
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    title: ID
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+    /api/role/detail/:id:
+        get:
+            operationId: Detail
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    title: ID
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+    /api/role/edit/:id:
+        put:
+            operationId: Edit
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    title: ID
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
     /api/role/list:
         get:
             operationId: List
@@ -13,6 +94,153 @@ paths:
                         application/json:
                             schema:
                                 type: object
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+    /api/role/status/:id:
+        put:
+            operationId: UpdateStatus
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    title: ID
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+    /api/user/create:
+        post:
+            operationId: PostCreate
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+    /api/user/delete/:id:
+        delete:
+            operationId: Delete
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    title: ID
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+    /api/user/detail/:id:
+        get:
+            operationId: GetDetail
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    id:
+                                        type: integer
+                                        title: ID
+                                    name:
+                                        type: string
+                                        title: Name
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    title: ID
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+    /api/user/edit/:id:
+        post:
+            operationId: PostEdit
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    title: ID
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+    /api/user/list:
+        get:
+            operationId: List
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+    /api/user/status/:id:
+        put:
+            operationId: UpdateStatus
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    title: ID
             requestBody:
                 content:
                     application/json:

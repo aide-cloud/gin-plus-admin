@@ -5,6 +5,9 @@ go 1.21.0
 require (
 	github.com/aide-cloud/gin-plus v0.3.4
 	github.com/gin-gonic/gin v1.9.1
+	gorm.io/driver/mysql v1.5.1
+	gorm.io/gorm v1.25.4
+	gorm.io/plugin/soft_delete v1.2.1
 )
 
 require (
@@ -21,6 +24,7 @@ require (
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.15.4 // indirect
+	github.com/go-sql-driver/mysql v1.7.0 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/graph-gophers/graphql-go v1.5.0 // indirect
@@ -64,5 +68,4 @@ require (
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	gorm.io/gorm v1.25.4 // indirect
 )
