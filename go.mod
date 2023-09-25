@@ -3,7 +3,7 @@ module gin-plus-admin
 go 1.21.0
 
 require (
-	github.com/aide-cloud/gin-plus v0.3.4
+	github.com/aide-cloud/gin-plus v0.4.0
 	github.com/gin-gonic/gin v1.9.1
 	github.com/spf13/viper v1.16.0
 	go.uber.org/zap v1.26.0

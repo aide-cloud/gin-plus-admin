@@ -3,9 +3,8 @@ package user
 import (
 	"context"
 
-	"gin-plus-admin/pkg/conn"
+	dataUser "gin-plus-admin/internal/data/user"
 	"gin-plus-admin/pkg/model"
-	"gin-plus-admin/pkg/model/query"
 
 	ginplus "github.com/aide-cloud/gin-plus"
 	"go.uber.org/zap"
@@ -30,9 +29,9 @@ type (
 
 // GetDetail ...
 func (l *User) GetDetail(ctx context.Context, req *DetailReq) (*DetailResp, error) {
-	action := query.NewAction(query.WithDB[model.User](conn.GetMysqlDB()))
+	userData := dataUser.NewUser()
 
-	first, err := action.First(ctx, model.WhereID(req.ID))
+	first, err := userData.First(ctx, model.WhereID(req.ID))
 	if err != nil {
 		ginplus.Logger().Error("get user detail failed", zap.Any("req", req), zap.Error(err))
 		return nil, err

@@ -182,6 +182,9 @@ paths:
                                     name:
                                         type: string
                                         title: Name
+                                    update_at:
+                                        type: integer
+                                        title: UpdateAt
             parameters:
                 - name: id
                   in: path
