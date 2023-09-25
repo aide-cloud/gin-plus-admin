@@ -7,7 +7,7 @@ import (
 	ginplus "github.com/aide-cloud/gin-plus"
 )
 
-func Init() {
+func Init() *conf.Bootstrap {
 	bc := conf.NewBootstrap(conf.WithConfigFile(*configPath))
 	if bc == nil {
 		panic("conf.NewBootstrap() error")
@@ -24,4 +24,6 @@ func Init() {
 			conn.InitMysqlDB(bc.Data.Mysql.DSN, bc.Data.Mysql.Debug)
 		}
 	}
+
+	return bc
 }

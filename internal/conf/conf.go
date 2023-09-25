@@ -12,7 +12,9 @@ type (
 		flag string
 
 		// config ...
-		Data   *Data   `yaml:"data"`
+		// 存储配置
+		Data *Data `yaml:"data"`
+		// 服务配置
 		Server *Server `yaml:"server"`
 	}
 
@@ -23,7 +25,16 @@ type (
 
 	Server struct {
 		Name     string            `yaml:"name"`
+		Mode     string            `yaml:"mode"`
 		Matadata map[string]string `yaml:"matadata"`
+
+		// http ...
+		Http *Http `yaml:"http"`
+	}
+
+	Http struct {
+		Host string `yaml:"host"`
+		Port int    `yaml:"port"`
 	}
 
 	Mysql struct {

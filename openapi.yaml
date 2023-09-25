@@ -254,7 +254,11 @@ paths:
                         schema:
                             type: object
 server:
+    http:
+        host: 0.0.0.0
+        port: 8080
     matadata:
         description: gin-plus-admin-app
         time: "2023-09-25 15:00:00"
+    mode: debug
     name: gin-plus-admin-app

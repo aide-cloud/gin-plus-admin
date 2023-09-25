@@ -1,7 +1,9 @@
 package server
 
 import (
-	api "gin-plus-admin/internal/service"
+	"fmt"
+	"gin-plus-admin/internal/conf"
+	"gin-plus-admin/internal/service"
 	"gin-plus-admin/internal/service/role"
 	"gin-plus-admin/internal/service/user"
 	"time"
@@ -10,24 +12,32 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func NewHttpServer(ServiceName string) *ginplus.GinEngine {
+func NewHttpServer(server *conf.Server) *ginplus.GinEngine {
 	middle := ginplus.NewMiddleware()
-
+	var r *gin.Engine
 	// 初始化gin实例
-	r := gin.Default()
+	if server.Mode == gin.DebugMode {
+		gin.SetMode(gin.DebugMode)
+		r = gin.Default()
+	} else {
+		gin.SetMode(gin.ReleaseMode)
+		r = gin.New()
+	}
+
 	r.Use(
 		middle.Cors(),
-		middle.Logger(ServiceName, time.DateTime),
+		middle.Logger(server.Name, time.DateTime),
 	)
 
 	// 初始化ginplus实例
 	ginplusEngine := ginplus.New(r,
+		ginplus.WithAddr(fmt.Sprintf("%s:%d", server.Http.Host, server.Http.Port)),
 		ginplus.AppendHttpMethodPrefixes(httpMethodPrefixes...),
 		// 注册api模块
 		ginplus.WithControllers(
-			api.NewApi(
-				api.WithUserApi(user.NewUser()),
-				api.WithRoleApi(role.NewRole()),
+			service.NewApi(
+				service.WithUserApi(user.NewUser()),
+				service.WithRoleApi(role.NewRole()),
 			),
 		),
 	)

@@ -5,7 +5,7 @@ import (
 
 	"gin-plus-admin/pkg/conn"
 	"gin-plus-admin/pkg/model"
-	"gin-plus-admin/pkg/model/methods"
+	"gin-plus-admin/pkg/model/query"
 
 	ginplus "github.com/aide-cloud/gin-plus"
 	"go.uber.org/zap"
@@ -24,12 +24,13 @@ type (
 		ID        uint   `json:"id"`
 		Name      string `json:"name"`
 		CreatedAt int64  `json:"created_at"`
+		UpdateAt  int64  `json:"update_at"`
 	}
 )
 
 // GetDetail ...
 func (l *User) GetDetail(ctx context.Context, req *DetailReq) (*DetailResp, error) {
-	action := methods.NewAction(methods.WithDB[model.User](conn.GetMysqlDB()))
+	action := query.NewAction(query.WithDB[model.User](conn.GetMysqlDB()))
 
 	first, err := action.First(ctx, model.WhereID(req.ID))
 	if err != nil {
@@ -42,5 +43,6 @@ func (l *User) GetDetail(ctx context.Context, req *DetailReq) (*DetailResp, erro
 		ID:        first.ID,
 		Name:      first.Name,
 		CreatedAt: first.CreatedAt.Unix(),
+		UpdateAt:  first.UpdatedAt.Unix(),
 	}, nil
 }

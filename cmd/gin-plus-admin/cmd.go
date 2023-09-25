@@ -18,10 +18,10 @@ var (
 
 func main() {
 	flag.Parse()
-	Init()
+	bc := Init()
 
 	svs := []ginplus.Server{
-		server.NewHttpServer(ServiceName),
+		server.NewHttpServer(bc.Server),
 	}
 
 	// 启动gin-plus
