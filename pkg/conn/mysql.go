@@ -14,7 +14,7 @@ var (
 	once sync.Once
 )
 
-func InitMysqlDB(dsn string) {
+func InitMysqlDB(dsn string, debug bool) {
 	once.Do(func() {
 		sqlDB, err := sql.Open("mysql", dsn)
 		if err != nil {
@@ -27,7 +27,9 @@ func InitMysqlDB(dsn string) {
 			panic(err)
 		}
 
-		db = db.Debug()
+		if debug {
+			db = db.Debug()
+		}
 
 		if err := db.Use(ginplus.NewOpentracingPlugin()); err != nil {
 			panic(err)
@@ -37,5 +39,8 @@ func InitMysqlDB(dsn string) {
 }
 
 func GetMysqlDB() *gorm.DB {
+	if _db == nil {
+		panic("mysql db not init")
+	}
 	return _db
 }

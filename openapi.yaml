@@ -1,3 +1,7 @@
+data:
+    mysql:
+        debug: true
+        dsn: root:6cd9aa521e1636b02dd1edd5e3ed22c8@tcp(43.142.16.102:33060)/gin-plus-admin?charset=utf8mb4&parseTime=True&loc=Local
 info:
     title: github.com/aide-cloud/gin-plus
     version: v0.3.1
@@ -169,6 +173,9 @@ paths:
                             schema:
                                 type: object
                                 properties:
+                                    created_at:
+                                        type: integer
+                                        title: CreatedAt
                                     id:
                                         type: integer
                                         title: ID
@@ -246,3 +253,8 @@ paths:
                     application/json:
                         schema:
                             type: object
+server:
+    matadata:
+        description: gin-plus-admin-app
+        time: "2023-09-25 15:00:00"
+    name: gin-plus-admin-app

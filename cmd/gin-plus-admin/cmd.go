@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"gin-plus-admin/internal/api"
 	"gin-plus-admin/internal/api/logic/role"
 	"gin-plus-admin/internal/api/logic/user"
@@ -12,12 +13,16 @@ import (
 
 var (
 	// Version 版本号
-	Version = "1.0.0"
+	Version string
 	// ServiceName 服务名称
 	ServiceName = "gin-plus-admin"
+	// configPath 配置文件路径
+	configPath = flag.String("config", "config/config.yaml", "config file path")
 )
 
 func main() {
+	flag.Parse()
+	Init()
 
 	middle := ginplus.NewMiddleware()
 
@@ -43,26 +48,4 @@ func main() {
 	ginplusEngine.RegisterPing().RegisterSwaggerUI()
 	// 启动gin-plus
 	ginplus.NewCtrlC(ginplusEngine).Start()
-}
-
-var httpMethodPrefixes = []ginplus.HttpMethod{
-	{
-		Prefix: "Create",
-		Method: ginplus.Post,
-	}, {
-		Prefix: "Update",
-		Method: ginplus.Put,
-	}, {
-		Prefix: "Edit",
-		Method: ginplus.Put,
-	}, {
-		Prefix: "Delete",
-		Method: ginplus.Delete,
-	}, {
-		Prefix: "Detail",
-		Method: ginplus.Get,
-	}, {
-		Prefix: "List",
-		Method: ginplus.Get,
-	},
 }

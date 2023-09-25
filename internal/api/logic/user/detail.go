@@ -21,8 +21,9 @@ type (
 	// DetailResp ...
 	DetailResp struct {
 		// add response params
-		ID   uint   `json:"id"`
-		Name string `json:"name"`
+		ID        uint   `json:"id"`
+		Name      string `json:"name"`
+		CreatedAt int64  `json:"created_at"`
 	}
 )
 
@@ -38,7 +39,8 @@ func (l *User) GetDetail(ctx context.Context, req *DetailReq) (*DetailResp, erro
 
 	// add your code here
 	return &DetailResp{
-		ID:   first.ID,
-		Name: first.Name,
+		ID:        first.ID,
+		Name:      first.Name,
+		CreatedAt: first.CreatedAt.Unix(),
 	}, nil
 }
