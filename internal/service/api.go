@@ -1,8 +1,8 @@
 package api
 
 import (
-	"gin-plus-admin/internal/api/logic/role"
-	"gin-plus-admin/internal/api/logic/user"
+	"gin-plus-admin/internal/service/role"
+	"gin-plus-admin/internal/service/user"
 
 	ginplus "github.com/aide-cloud/gin-plus"
 	"github.com/gin-gonic/gin"
@@ -56,7 +56,7 @@ func (l *Api) Middlewares() []gin.HandlerFunc {
 	}
 }
 
-// MethoderMiddlewares 添加Api模块的每个api方法独有中间件
+// MethoderMiddlewares
 func (l *Api) MethoderMiddlewares() map[string][]gin.HandlerFunc {
 	return map[string][]gin.HandlerFunc{
 		// your method middlewares

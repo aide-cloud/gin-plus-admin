@@ -1,8 +1,8 @@
 package api
 
 import (
-	"gin-plus-admin/internal/api/logic/role"
-	"gin-plus-admin/internal/api/logic/user"
+	"gin-plus-admin/internal/service/role"
+	"gin-plus-admin/internal/service/user"
 )
 
 func WithUserApi(api *user.User) ApiOption {

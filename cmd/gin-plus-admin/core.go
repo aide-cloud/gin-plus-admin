@@ -25,25 +25,3 @@ func Init() {
 		}
 	}
 }
-
-var httpMethodPrefixes = []ginplus.HttpMethod{
-	{
-		Prefix: "Create",
-		Method: ginplus.Post,
-	}, {
-		Prefix: "Update",
-		Method: ginplus.Put,
-	}, {
-		Prefix: "Edit",
-		Method: ginplus.Put,
-	}, {
-		Prefix: "Delete",
-		Method: ginplus.Delete,
-	}, {
-		Prefix: "Detail",
-		Method: ginplus.Get,
-	}, {
-		Prefix: "List",
-		Method: ginplus.Get,
-	},
-}
