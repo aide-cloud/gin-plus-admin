@@ -3,8 +3,8 @@ package user
 import (
 	"gin-plus-admin/pkg/conn"
 	"gin-plus-admin/pkg/model"
-	"gin-plus-admin/pkg/model/query"
 
+	query "github.com/aide-cloud/gorm-normalize"
 	"gorm.io/gorm"
 )
 
@@ -26,7 +26,7 @@ func NewUser() *User {
 }
 
 // PreloadFiles 预加载关联文件
-func (l *User) PreloadFiles(scops ...model.Scopemethod) model.Scopemethod {
+func (l *User) PreloadFiles(scops ...query.Scopemethod) query.Scopemethod {
 	return func(db *gorm.DB) *gorm.DB {
 		if len(scops) == 0 {
 			return db.Preload(l.PreloadFilesKey)

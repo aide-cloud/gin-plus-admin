@@ -1,9 +1,13 @@
 package model
 
+import (
+	query "github.com/aide-cloud/gorm-normalize"
+)
+
 type FileType int8
 
 type File struct {
-	BaseModel
+	query.BaseModel
 	UserID   uint     `gorm:"column:user_id;type:int(10) unsigned;not null;default:0;comment:用户ID" json:"user_id"`
 	Name     string   `gorm:"column:name;type:varchar(20);not null;default:'';comment:文件名" json:"name"`
 	Url      string   `gorm:"column:url;type:varchar(255);not null;default:'';comment:文件地址" json:"url"`

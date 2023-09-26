@@ -7,6 +7,7 @@ import (
 	"gin-plus-admin/pkg/model"
 
 	ginplus "github.com/aide-cloud/gin-plus"
+	query "github.com/aide-cloud/gorm-normalize"
 	"go.uber.org/zap"
 )
 
@@ -33,7 +34,7 @@ type (
 func (l *User) GetDetail(ctx context.Context, req *DetailReq) (*DetailResp, error) {
 	userData := dataUser.NewUser()
 
-	first, err := userData.First(ctx, model.WhereID(req.ID), userData.PreloadFiles())
+	first, err := userData.WithContext(ctx).First(query.WhereID(req.ID), userData.PreloadFiles())
 	if err != nil {
 		ginplus.Logger().Error("get user detail failed", zap.Any("req", req), zap.Error(err))
 		return nil, err

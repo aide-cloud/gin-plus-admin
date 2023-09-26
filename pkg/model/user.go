@@ -1,7 +1,9 @@
 package model
 
+import query "github.com/aide-cloud/gorm-normalize"
+
 type User struct {
-	BaseModel
+	query.BaseModel
 	Name  string  `gorm:"column:name;type:varchar(20);not null;default:'';comment:用户名" json:"name"`
 	Files []*File `gorm:"foreignKey:UserID" json:"files"`
 }
