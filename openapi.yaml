@@ -176,6 +176,30 @@ paths:
                                     created_at:
                                         type: integer
                                         title: CreatedAt
+                                    files:
+                                        type: array
+                                        title: Files
+                                        items:
+                                            properties:
+                                                ext:
+                                                    type: string
+                                                    title: Ext
+                                                file_type:
+                                                    type: object
+                                                    title: FileType
+                                                name:
+                                                    type: string
+                                                    title: Name
+                                                size:
+                                                    type: integer
+                                                    title: Size
+                                                url:
+                                                    type: string
+                                                    title: Url
+                                                user_id:
+                                                    type: integer
+                                                    title: UserID
+                                            type: object
                                     id:
                                         type: integer
                                         title: ID
