@@ -31,7 +31,6 @@ type (
 
 // NewAesCipher 创建一个新的AesCipher
 func NewAesCipher(opts ...AesCipherOption) (*AesCipher, error) {
-
 	aesExcept := AesCipher{
 		key: []byte(defaultAesKey),
 		iv:  []byte(defaultAesIv),

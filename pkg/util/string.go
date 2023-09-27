@@ -5,21 +5,17 @@ import (
 	"time"
 )
 
-// 生成8位hash盐值
+// GenerateSalt 生成8位hash盐值
 func GenerateSalt() string {
 	return RandomString(8)
 }
 
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
-
-// RandomString returns a random string of the specified length.
+// RandomString 返回指定长度的随机字符串
 func RandomString(length int) string {
 	return randomString(length, false)
 }
 
-// randomString returns a random string of the specified length.
+// randomString 返回指定长度的随机字符串
 func randomString(length int, includeNumbers bool) string {
 	var letters = []byte("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 	if includeNumbers {
@@ -28,7 +24,7 @@ func randomString(length int, includeNumbers bool) string {
 	return string(randomBytes(length, letters))
 }
 
-// randomBytes returns a random byte array of the specified length.
+// randomBytes 返回指定长度的随机字节切片
 func randomBytes(length int, letters []byte) []byte {
 	b := make([]byte, length)
 	for i := range b {
@@ -41,12 +37,14 @@ func randomBytes(length int, letters []byte) []byte {
 	return b
 }
 
-// RandomInt returns a random integer in the range [min, max).
+// RandomInt 返回指定范围内的随机整数
 func RandomInt(min, max int) int {
 	return randomInt(min, max)
 }
 
-// randomInt returns a random integer in the range [min, max).
+// randomInt 返回指定范围内的随机整数
 func randomInt(min, max int) int {
-	return min + rand.Intn(max-min)
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+	return min + r.Intn(max-min)
 }

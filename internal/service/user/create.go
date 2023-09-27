@@ -42,7 +42,7 @@ var (
 )
 
 func (l *CreateReq) Validate() error {
-	err := gerrors.NewNil().WithError(l.checkName()).WithError(l.checkPassword())
+	err := gerrors.NewNil().WithError(l.checkName()).WithError(l.checkPassword()).IsNil()
 	if err != nil {
 		ginplus.Logger().Sugar().Error(err)
 		return err
