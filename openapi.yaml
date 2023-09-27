@@ -127,7 +127,7 @@ paths:
                             type: object
     /api/user/create:
         post:
-            operationId: PostCreate
+            operationId: Create
             responses:
                 200:
                     description: ""
@@ -135,11 +135,28 @@ paths:
                         application/json:
                             schema:
                                 type: object
+                                properties:
+                                    id:
+                                        type: integer
+                                        title: ID
             requestBody:
                 content:
                     application/json:
                         schema:
                             type: object
+                            properties:
+                                avatar:
+                                    type: string
+                                    title: Avatar
+                                birthday:
+                                    type: integer
+                                    title: Birthday
+                                name:
+                                    type: string
+                                    title: Name
+                                password:
+                                    type: string
+                                    title: Password
     /api/user/delete/:id:
         delete:
             operationId: Delete

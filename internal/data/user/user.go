@@ -37,3 +37,10 @@ func (l *User) PreloadFiles(scops ...query.Scopemethod) query.Scopemethod {
 		})
 	}
 }
+
+// WhereEqualName ...
+func (l *User) WhereEqualName(name string) query.Scopemethod {
+	return func(db *gorm.DB) *gorm.DB {
+		return db.Where("name = ?", name)
+	}
+}

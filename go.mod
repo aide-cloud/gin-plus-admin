@@ -3,17 +3,16 @@ module gin-plus-admin
 go 1.21.0
 
 require (
-	github.com/aide-cloud/gin-plus v0.4.0
+	github.com/aide-cloud/gin-plus v0.4.2
+	github.com/aide-cloud/gorm-normalize v0.0.1
 	github.com/gin-gonic/gin v1.9.1
 	github.com/spf13/viper v1.16.0
 	go.uber.org/zap v1.26.0
 	gorm.io/driver/mysql v1.5.1
 	gorm.io/gorm v1.25.4
-	gorm.io/plugin/soft_delete v1.2.1
 )
 
 require (
-	github.com/aide-cloud/gorm-normalize v0.0.1 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bytedance/sonic v1.10.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
@@ -69,4 +68,5 @@ require (
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+	gorm.io/plugin/soft_delete v1.2.1 // indirect
 )
