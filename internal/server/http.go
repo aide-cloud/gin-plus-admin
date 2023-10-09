@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"gin-plus-admin/internal/conf"
 	"gin-plus-admin/internal/service"
+	"gin-plus-admin/internal/service/auth"
 	"gin-plus-admin/internal/service/role"
 	"gin-plus-admin/internal/service/user"
 	"time"
@@ -38,6 +39,7 @@ func NewHttpServer(server *conf.Server) *ginplus.GinEngine {
 			service.NewApi(
 				service.WithUserApi(user.NewUser()),
 				service.WithRoleApi(role.NewRole()),
+				service.WithAuthApi(auth.NewAuth()),
 			),
 		),
 	)
@@ -65,5 +67,14 @@ var httpMethodPrefixes = []ginplus.HttpMethod{
 	}, {
 		Prefix: "List",
 		Method: ginplus.Get,
+	}, {
+		Prefix: "Login",
+		Method: ginplus.Post,
+	}, {
+		Prefix: "Logout",
+		Method: ginplus.Post,
+	}, {
+		Prefix: "Register",
+		Method: ginplus.Post,
 	},
 }

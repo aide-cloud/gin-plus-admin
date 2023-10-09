@@ -7,6 +7,51 @@ info:
     version: v0.3.1
 openapi: 3.0.3
 paths:
+    /api/auth/login:
+        post:
+            operationId: Login
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+    /api/auth/logout:
+        post:
+            operationId: Logout
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+    /api/auth/register:
+        post:
+            operationId: Register
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
     /api/role/create:
         post:
             operationId: Create

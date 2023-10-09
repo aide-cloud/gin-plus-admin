@@ -1,6 +1,7 @@
 package service
 
 import (
+	"gin-plus-admin/internal/service/auth"
 	"gin-plus-admin/internal/service/role"
 	"gin-plus-admin/internal/service/user"
 
@@ -23,6 +24,7 @@ type (
 		// add child module
 		User *user.User
 		Role *role.Role
+		Auth *auth.Auth
 	}
 
 	// ApiOption ...
