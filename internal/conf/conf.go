@@ -72,6 +72,9 @@ func NewBootstrap(opts ...BootstrapOption) *Bootstrap {
 		panic(err)
 	}
 
+	// 写入完成, 清空viper
+	viper.Reset()
+
 	once.Do(func() {
 		c = b
 	})

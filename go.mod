@@ -4,7 +4,7 @@ go 1.21.0
 
 require (
 	github.com/aide-cloud/gin-plus v0.4.2
-	github.com/aide-cloud/gorm-normalize v0.0.1
+	github.com/aide-cloud/gorm-normalize v0.2.0
 	github.com/gin-gonic/gin v1.9.1
 	github.com/spf13/viper v1.16.0
 	go.uber.org/zap v1.26.0
@@ -54,11 +54,11 @@ require (
 	github.com/subosito/gotenv v1.6.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.11 // indirect
-	go.opentelemetry.io/otel v1.18.0 // indirect
+	go.opentelemetry.io/otel v1.19.0 // indirect
 	go.opentelemetry.io/otel/exporters/jaeger v1.17.0 // indirect
-	go.opentelemetry.io/otel/metric v1.18.0 // indirect
+	go.opentelemetry.io/otel/metric v1.19.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.18.0 // indirect
-	go.opentelemetry.io/otel/trace v1.18.0 // indirect
+	go.opentelemetry.io/otel/trace v1.19.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/arch v0.5.0 // indirect
 	golang.org/x/crypto v0.13.0 // indirect

@@ -15,7 +15,7 @@ type (
 	// DetailReq ...
 	DetailReq struct {
 		// add request params
-		ID int `uri:"id"`
+		ID uint `uri:"id"`
 	}
 
 	// DetailResp ...

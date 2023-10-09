@@ -1,7 +1,3 @@
-data:
-    mysql:
-        debug: true
-        dsn: root:6cd9aa521e1636b02dd1edd5e3ed22c8@tcp(43.142.16.102:33060)/gin-plus-admin?charset=utf8mb4&parseTime=True&loc=Local
 info:
     title: github.com/aide-cloud/gin-plus
     version: v0.3.1
@@ -305,6 +301,16 @@ paths:
                     application/json:
                         schema:
                             type: object
+                            properties:
+                                avatar:
+                                    type: string
+                                    title: Avatar
+                                birthday:
+                                    type: integer
+                                    title: Birthday
+                                name:
+                                    type: string
+                                    title: Name
     /api/user/list:
         get:
             operationId: List
@@ -315,11 +321,112 @@ paths:
                         application/json:
                             schema:
                                 type: object
+                                properties:
+                                    list:
+                                        type: array
+                                        title: List
+                                        items:
+                                            properties:
+                                                avatar:
+                                                    type: string
+                                                    title: Avatar
+                                                birthday:
+                                                    type: integer
+                                                    title: Birthday
+                                                files:
+                                                    type: array
+                                                    title: Files
+                                                    items:
+                                                        properties:
+                                                            ext:
+                                                                type: string
+                                                                title: Ext
+                                                            file_type:
+                                                                type: object
+                                                                title: FileType
+                                                            name:
+                                                                type: string
+                                                                title: Name
+                                                            size:
+                                                                type: integer
+                                                                title: Size
+                                                            url:
+                                                                type: string
+                                                                title: Url
+                                                            user_id:
+                                                                type: integer
+                                                                title: UserID
+                                                        type: object
+                                                name:
+                                                    type: string
+                                                    title: Name
+                                                status:
+                                                    type: object
+                                                    title: Status
+                                            type: object
+                                    page_info:
+                                        type: object
+                                        title: PageInfo
+                                        properties:
+                                            curr:
+                                                type: integer
+                                                title: Curr
+                                            size:
+                                                type: integer
+                                                title: Size
+                                            total:
+                                                type: integer
+                                                title: Total
+            parameters:
+                - name: keyword
+                  in: query
+                  schema:
+                    type: string
+                    title: Keyword
+                - name: curr
+                  in: query
+                  schema:
+                    type: integer
+                    title: Curr
+                - name: size
+                  in: query
+                  schema:
+                    type: integer
+                    title: Size
             requestBody:
                 content:
                     application/json:
                         schema:
                             type: object
+    /api/user/password/:id:
+        put:
+            operationId: UpdatePassword
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    title: ID
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                new_password:
+                                    type: string
+                                    title: NewPassword
+                                old_password:
+                                    type: string
+                                    title: OldPassword
     /api/user/status/:id:
         put:
             operationId: UpdateStatus
@@ -342,12 +449,7 @@ paths:
                     application/json:
                         schema:
                             type: object
-server:
-    http:
-        host: 0.0.0.0
-        port: 8080
-    matadata:
-        description: gin-plus-admin-app
-        time: "2023-09-25 15:00:00"
-    mode: debug
-    name: gin-plus-admin-app
+                            properties:
+                                status:
+                                    type: object
+                                    title: Status
